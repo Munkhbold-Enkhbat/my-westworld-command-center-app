@@ -8,6 +8,7 @@ function App() {
 
   const [areas, setAreas] = useState([])
   const [hosts, setHosts] = useState([])
+  const [selectedHost, setSelectedHost] = useState(null)
 
   useEffect(() => {
     fetch('http://localhost:3001/areas')
@@ -25,7 +26,12 @@ function App() {
     <Segment id="app">
       {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
       <WestworldMap areas={areas}/>
-      <Headquarters hosts={hosts} setHosts={setHosts}/>
+      <Headquarters 
+        hosts={hosts} 
+        setHosts={setHosts} 
+        selectedHost={selectedHost}
+        setSelectedHost={setSelectedHost}
+      />
     </Segment>
   );
 }
