@@ -4,10 +4,12 @@ import Details from "./Details";
 import "../stylesheets/Headquarters.css";
 import ColdStorage from "./ColdStorage";
 
-function Headquarters() {
+function Headquarters({ hosts, setHosts }) {
   return (
     <Grid celled="internally">
-      <Grid.Column width={8}><ColdStorage /></Grid.Column>
+      <Grid.Column width={8}>
+        <ColdStorage hosts={hosts} setHosts={setHosts}/>
+      </Grid.Column>
       <Grid.Column width={5}>
         <Details />
       </Grid.Column>
