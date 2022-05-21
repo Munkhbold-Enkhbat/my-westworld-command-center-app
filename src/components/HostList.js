@@ -6,7 +6,13 @@ function HostList({ hosts, setSelectedHost }) {
 
   const renderHosts = () => {
     return hosts.map(host => {
-      return <Host key={host.id} host={host} setSelectedHost={setSelectedHost}/>
+      return (
+        <Host 
+          key={host.id} 
+          host={host} 
+          hosts={hosts}
+          setSelectedHost={setSelectedHost}
+        />)
     })
   }
 

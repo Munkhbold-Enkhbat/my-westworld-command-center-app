@@ -12,7 +12,7 @@ import "../stylesheets/HostInfo.css";
 
 function HostInfo({ selectedHost, setSelectedHost, areas}) {
 
-  const { id, firstName, lastName, active, imageUrl, gender, area, authorized } = selectedHost
+  const { id, firstName, active, imageUrl, gender, area } = selectedHost
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
