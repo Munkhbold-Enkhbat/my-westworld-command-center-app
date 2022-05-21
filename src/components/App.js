@@ -31,6 +31,7 @@ function App() {
         setHosts={setHosts} 
         selectedHost={selectedHost}
         setSelectedHost={setSelectedHost}
+        areas={areas}
       />
     </Segment>
   );

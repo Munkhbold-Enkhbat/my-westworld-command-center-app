@@ -10,7 +10,7 @@ function Host({ host, setSelectedHost }) {
 
   return (
     <Card
-      className="host selected"
+      className="host"
       onClick={handleClick}
       image={host.imageUrl}
       raised

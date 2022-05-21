@@ -5,7 +5,7 @@ import "../stylesheets/Headquarters.css";
 import ColdStorage from "./ColdStorage";
 import LogPanel from "./LogPanel";
 
-function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost }) {
+function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost, areas }) {
   // console.log("Selected Host from HQ:", selectedHost);
   return (
     <Grid celled="internally">
@@ -18,7 +18,11 @@ function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost }) {
         />
       </Grid.Column>
       <Grid.Column width={5}>
-        <Details selectedHost={selectedHost}/>
+        <Details 
+          selectedHost={selectedHost} 
+          setSelectedHost={setSelectedHost}
+          areas={areas}
+        />
       </Grid.Column>
       <Grid.Column width={3}>
         <LogPanel />

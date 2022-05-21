@@ -10,31 +10,48 @@ import {
 } from "semantic-ui-react";
 import "../stylesheets/HostInfo.css";
 
-function HostInfo({ selectedHost}) {
+function HostInfo({ selectedHost, setSelectedHost, areas}) {
 
-  const { firstName, lastName, active, imageUrl, gender, area, authorized } = selectedHost
-  const [isActive, setIsActive] = useState(active)
+  const { id, firstName, lastName, active, imageUrl, gender, area, authorized } = selectedHost
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
 
   // IMPORTANT: But whether it should be stateful or not is entirely up to you. Change this component however you like.
-  const [options] = useState([
-    { key: "some_area", text: "Some Area", value: "some_area" },
-    { key: "another_area", text: "Another Area", value: "another_area" },
-  ]);
+  // const [options] = useState([
+  //   { key: "some_area", text: "Some Area", value: "some_area" },
+  //   { key: "another_area", text: "Another Area", value: "another_area" },
+  // ]);
 
-  const [value] = useState("some_area");
+  const [options] = useState(areas.map(area => {
+    const strArr = area.name.split(/[_]/)
+    const areaName = strArr.map(str => str[0].toUpperCase() + str.slice(1)).join(' ')
+    return {key: area.name, text: areaName, value: area.name}
+  }))
+
+  const [value, setValue] = useState(area.name);
 
   function handleOptionChange(e, { value }) {
+    console.log("Value:", value);
+    console.log("e.target:", e.target)
+    setValue(value)
     // the 'value' attribute is given via Semantic's Dropdown component.
     // Put a debugger or console.log in here and see what the "value" variable is when you pass in different options.
     // See the Semantic docs for more info: https://react.semantic-ui.com/modules/dropdown/#usage-controlled
   }
 
   function handleRadioChange() {
-    // console.log("The radio button fired");
-    setIsActive(!isActive)
+    fetch(`http://localhost:3001/hosts/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        active: !active,
+        area: value
+      })
+    }).then(res => res.json())
+      .then(updatedHost => setSelectedHost(updatedHost))
   }
 
   return (
@@ -59,8 +76,8 @@ function HostInfo({ selectedHost}) {
               {/* Checked takes a boolean and determines what position the switch is in. Should it always be true? */}
               <Radio
                 onChange={handleRadioChange}
-                label={isActive ? "Active" : "Decommissioned"}
-                checked={isActive}
+                label={active ? "Active" : "Decommissioned"}
+                checked={active}
                 slider
               />
             </Card.Meta>
