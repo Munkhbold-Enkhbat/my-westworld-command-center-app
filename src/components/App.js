@@ -12,12 +12,12 @@ function App() {
   const [isAllActive, setIsAllActive] = useState(false)
 
   let activeHosts = []
-  let nonActiveHost = []
+  let nonActiveHosts = []
 
   isAllActive ? hosts.map(host => host.active = true) : hosts.map(host => host.active = false)
 
   hosts.forEach(host => host.active ? activeHosts = [...activeHosts, host] :
-    nonActiveHost = [...nonActiveHost, host])
+    nonActiveHosts = [...nonActiveHosts, host])
 
   useEffect(() => {
     fetch('http://localhost:3001/areas')
@@ -36,7 +36,7 @@ function App() {
       {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
       <WestworldMap areas={areas} activeHosts={activeHosts}/>
       <Headquarters 
-        nonActiveHost={nonActiveHost} 
+        nonActiveHosts={nonActiveHosts} 
         setHosts={setHosts} 
         selectedHost={selectedHost}
         setSelectedHost={setSelectedHost}
