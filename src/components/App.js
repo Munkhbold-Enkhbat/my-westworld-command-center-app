@@ -9,6 +9,15 @@ function App() {
   const [areas, setAreas] = useState([])
   const [hosts, setHosts] = useState([])
   const [selectedHost, setSelectedHost] = useState(null)
+  const [isAllActive, setIsAllActive] = useState(false)
+
+  let activeHosts = []
+  let nonActiveHost = []
+
+  isAllActive ? hosts.map(host => host.active = true) : hosts.map(host => host.active = false)
+
+  hosts.forEach(host => host.active ? activeHosts = [...activeHosts, host] :
+    nonActiveHost = [...nonActiveHost, host])
 
   useEffect(() => {
     fetch('http://localhost:3001/areas')
@@ -25,13 +34,15 @@ function App() {
   return (
     <Segment id="app">
       {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
-      <WestworldMap areas={areas}/>
+      <WestworldMap areas={areas} activeHosts={activeHosts}/>
       <Headquarters 
-        hosts={hosts} 
+        nonActiveHost={nonActiveHost} 
         setHosts={setHosts} 
         selectedHost={selectedHost}
         setSelectedHost={setSelectedHost}
         areas={areas}
+        isAllActive={isAllActive}
+        setIsAllActive={setIsAllActive}
       />
     </Segment>
   );

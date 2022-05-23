@@ -29,12 +29,10 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
     return {key: area.name, text: areaName, value: area.name}
   }))
 
-  const [value, setValue] = useState(area.name);
-
-
+  const [value, setValue] = useState(selectedHost.area);
 
   function handleOptionChange(e, { value }) {
-    console.log("Value:", value);
+    
     // console.log("option change name:", e.target.parentNode)
     console.log("option change:", e.target)
     setValue(value)
@@ -100,7 +98,7 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
             Current Area:
             <Dropdown
               onChange={handleOptionChange}
-              value={value}
+              value={area}
               name="area"
               options={options}
               selection

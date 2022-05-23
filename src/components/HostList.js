@@ -2,15 +2,15 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 import Host from "./Host"
 
-function HostList({ hosts, setSelectedHost }) {
+function HostList({ nonActiveHost, setSelectedHost }) {
 
   const renderHosts = () => {
-    return hosts.map(host => {
+    return nonActiveHost.map(host => {
       return (
         <Host 
           key={host.id} 
           host={host} 
-          hosts={hosts}
+          nonActiveHost={nonActiveHost}
           setSelectedHost={setSelectedHost}
         />)
     })

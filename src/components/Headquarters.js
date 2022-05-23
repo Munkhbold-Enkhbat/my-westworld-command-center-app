@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid } from "semantic-ui-react";
 import Details from "./Details";
 import "../stylesheets/Headquarters.css";
 import ColdStorage from "./ColdStorage";
 import LogPanel from "./LogPanel";
 
-function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost, areas }) {
-  // console.log("Selected Host from HQ:", selectedHost);
-
-  const [activateAll, setActivateAll] = useState(false)
+function Headquarters({ nonActiveHost, setHosts, selectedHost, setSelectedHost, areas, isAllActive, setIsAllActive }) {
 
   return (
     <Grid celled="internally">
       <Grid.Column width={8}>
         <ColdStorage 
-          hosts={hosts}
+          nonActiveHost={nonActiveHost}
           setHosts={setHosts} 
           selectedHost={selectedHost}
           setSelectedHost={setSelectedHost}
@@ -28,7 +25,7 @@ function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost, areas })
         />
       </Grid.Column>
       <Grid.Column width={3}>
-        <LogPanel activateAll={activateAll} setActivateAll={setActivateAll}/>
+        <LogPanel isAllActive={isAllActive} setIsAllActive={setIsAllActive}/>
       </Grid.Column>
     </Grid>
   );

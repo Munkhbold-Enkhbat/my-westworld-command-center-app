@@ -2,7 +2,7 @@ import React from "react";
 import { Segment, Button } from "semantic-ui-react";
 import { Log } from "../services/Log";
 
-function LogPanel({ activateAll, setActivateAll }) {
+function LogPanel({ isAllActive, setIsAllActive }) {
   function dummyLogs() {
     // This is just to show you how this should work. But where should the log data actually get stored?
     // And where should we be creating logs in the first place?
@@ -19,10 +19,10 @@ function LogPanel({ activateAll, setActivateAll }) {
   }
 
   const handleClick = () => {
-    setActivateAll(!activateAll)
+    setIsAllActive(!isAllActive)
   }
 
-  console.log(activateAll);
+  console.log(isAllActive);
 
   return (
     <Segment className="HQComps" id="logPanel">
@@ -38,8 +38,8 @@ function LogPanel({ activateAll, setActivateAll }) {
       {/* This isn't always going to be the same color...*/}
       {/* Should the button always read "ACTIVATE ALL"? When should it read "DECOMMISSION ALL"? */}
       <Button fluid 
-              color={activateAll ? 'green' : 'red'} 
-              content={activateAll ? 'DECOMMISSION ALL' : 'ACTIVATE ALL'} 
+              color={isAllActive ? 'green' : 'red'} 
+              content={isAllActive ? 'DECOMMISSION ALL' : 'ACTIVATE ALL'} 
               onClick={handleClick}/>
     </Segment>
   );
