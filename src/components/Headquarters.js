@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import Details from "./Details";
 import "../stylesheets/Headquarters.css";
@@ -7,6 +7,9 @@ import LogPanel from "./LogPanel";
 
 function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost, areas }) {
   // console.log("Selected Host from HQ:", selectedHost);
+
+  const [activateAll, setActivateAll] = useState(false)
+
   return (
     <Grid celled="internally">
       <Grid.Column width={8}>
@@ -25,7 +28,7 @@ function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost, areas })
         />
       </Grid.Column>
       <Grid.Column width={3}>
-        <LogPanel />
+        <LogPanel activateAll={activateAll} setActivateAll={setActivateAll}/>
       </Grid.Column>
     </Grid>
   );

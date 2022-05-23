@@ -2,7 +2,6 @@ import React from "react";
 import "../stylesheets/Area.css";
 
 function Area({ area }) {
-
   const strArr = area.name.split(/[_]/)
   const areaName = strArr.map(str => str[0].toUpperCase() + str.slice(1)).join(' ')
   

@@ -31,15 +31,29 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
 
   const [value, setValue] = useState(area.name);
 
+
+
   function handleOptionChange(e, { value }) {
     console.log("Value:", value);
-    console.log("e.target:", e.target)
+    // console.log("option change name:", e.target.parentNode)
+    console.log("option change:", e.target)
     setValue(value)
+    fetch(`http://localhost:3001/hosts/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        area: value
+      })
+    }).then(res => res.json())
+      .then(updatedHost => setSelectedHost(updatedHost))
+    
     // the 'value' attribute is given via Semantic's Dropdown component.
     // Put a debugger or console.log in here and see what the "value" variable is when you pass in different options.
     // See the Semantic docs for more info: https://react.semantic-ui.com/modules/dropdown/#usage-controlled
   }
-
+  
   function handleRadioChange() {
     fetch(`http://localhost:3001/hosts/${id}`, {
       method: 'PATCH',
@@ -47,12 +61,13 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        active: !active,
-        area: value
+        active: !active
       })
     }).then(res => res.json())
       .then(updatedHost => setSelectedHost(updatedHost))
   }
+
+  console.log("Selected host:", selectedHost);
 
   return (
     <Grid>
@@ -86,6 +101,7 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
             <Dropdown
               onChange={handleOptionChange}
               value={value}
+              name="area"
               options={options}
               selection
             />
