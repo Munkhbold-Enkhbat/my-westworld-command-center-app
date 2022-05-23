@@ -22,6 +22,8 @@ function LogPanel({ activateAll, setActivateAll }) {
     setActivateAll(!activateAll)
   }
 
+  console.log(activateAll);
+
   return (
     <Segment className="HQComps" id="logPanel">
       <pre>
@@ -35,7 +37,10 @@ function LogPanel({ activateAll, setActivateAll }) {
       {/* Button below is the Activate All/Decommisssion All button */}
       {/* This isn't always going to be the same color...*/}
       {/* Should the button always read "ACTIVATE ALL"? When should it read "DECOMMISSION ALL"? */}
-      <Button fluid color={"red"} content={"ACTIVATE ALL"} onClick={handleClick}/>
+      <Button fluid 
+              color={activateAll ? 'green' : 'red'} 
+              content={activateAll ? 'DECOMMISSION ALL' : 'ACTIVATE ALL'} 
+              onClick={handleClick}/>
     </Segment>
   );
 }
