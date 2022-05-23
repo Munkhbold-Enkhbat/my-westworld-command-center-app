@@ -67,7 +67,7 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/f/f3/Akane.jpg/revision/latest/scale-to-width-down/310?cb=20180520132523",
       "gender": "Female",
-      "area": "python_pass",
+      "area": "under_construction",
       "authorized": false
     },
     {
@@ -84,7 +84,7 @@
       "id": 9,
       "firstName": "Teddy",
       "lastName": "Flood",
-      "active": false,
+      "active": true,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/a/a9/Teddy_Flood_Phase_Space.jpg/revision/latest/scale-to-width-down/310?cb=20180526115338",
       "gender": "Male",
       "area": "python_pass",

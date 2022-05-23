@@ -1,9 +1,20 @@
 import React from "react";
 import "../stylesheets/Area.css";
+import Host from "./Host";
 
-function Area({ area }) {
+function Area({ area, areaHosts }) {
   const strArr = area.name.split(/[_]/)
   const areaName = strArr.map(str => str[0].toUpperCase() + str.slice(1)).join(' ')
+
+  const renderHosts = () => {
+    return areaHosts.map(host => {
+      return (
+        <Host 
+          key={host.id}
+          areaHosts={areaHosts}
+        />)
+    })
+  }
   
   return (
     <div className="area" id={area.name}>
@@ -11,6 +22,7 @@ function Area({ area }) {
         {areaName}
       </h3>
       {/* See Checkpoint 1 item 2 in the Readme for a clue as to what goes here */}
+      {renderHosts()}
     </div>
   );
 }

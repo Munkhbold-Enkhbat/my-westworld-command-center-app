@@ -65,7 +65,7 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
       .then(updatedHost => setSelectedHost(updatedHost))
   }
 
-  console.log("Selected host:", selectedHost);
+  // console.log("Selected host:", selectedHost);
 
   return (
     <Grid>
