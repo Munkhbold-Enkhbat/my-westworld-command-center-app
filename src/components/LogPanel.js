@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Segment, Button } from "semantic-ui-react";
 import { Log } from "../services/Log";
 
-function LogPanel({ isAllActive, setIsAllActive }) {
+function LogPanel({ handleActivateBtn }) {
+
+  const [isAllActive, setIsAllActive] = useState(false)
+
   function dummyLogs() {
     // This is just to show you how this should work. But where should the log data actually get stored?
     // And where should we be creating logs in the first place?
@@ -18,11 +21,12 @@ function LogPanel({ isAllActive, setIsAllActive }) {
     return logs;
   }
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     setIsAllActive(!isAllActive)
+    handleActivateBtn(e)
   }
 
-  console.log(isAllActive);
+  // console.log(isAllActive);
 
   return (
     <Segment className="HQComps" id="logPanel">

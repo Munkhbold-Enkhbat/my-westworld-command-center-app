@@ -7,13 +7,13 @@ function Area({ area, areaHosts }) {
   const areaName = strArr.map(str => str[0].toUpperCase() + str.slice(1)).join(' ')
 
   const renderHosts = () => {
-    return areaHosts.map(host => {
-      return (
-        <Host 
-          key={host.id}
-          areaHosts={areaHosts}
-        />)
-    })
+    // return areaHosts.map(host => {
+    //   return (
+    //     <Host 
+    //       key={host.id}
+    //       areaHosts={areaHosts}
+    //     />)
+    // })
   }
   
   return (

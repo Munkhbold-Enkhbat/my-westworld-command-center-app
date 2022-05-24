@@ -7,8 +7,7 @@ function HostList({ nonActiveHosts, setSelectedHost }) {
   const renderHosts = () => {
     return nonActiveHosts.map(host => {
       return (
-        <Host 
-          key={host.id} 
+        <Host key={host.id} 
           host={host} 
           nonActiveHosts={nonActiveHosts}
           setSelectedHost={setSelectedHost}
