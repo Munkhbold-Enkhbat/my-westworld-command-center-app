@@ -12,7 +12,7 @@ import "../stylesheets/HostInfo.css";
 
 function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
 
-  const { id, firstName, active, imageUrl, gender } = selectedHost
+  const { id, firstName, active, imageUrl, gender, area } = selectedHost
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
@@ -72,7 +72,7 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
       })
   }
 
-  console.log("Selected host:", selectedHost);
+  // console.log("Selected host:", selectedHost);
 
   return (
     <Grid>
@@ -105,7 +105,7 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
             Current Area:
             <Dropdown
               onChange={handleOptionChange}
-              value={value}
+              value={area}
               name="area"
               options={options}
               selection
