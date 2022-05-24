@@ -12,7 +12,7 @@ import "../stylesheets/HostInfo.css";
 
 function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
 
-  const { id, firstName, active, imageUrl, gender, area } = selectedHost
+  const { id, firstName, active, imageUrl, gender } = selectedHost
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
@@ -34,7 +34,7 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
   function handleOptionChange(e, { value }) {
     
     // console.log("option change name:", e.target.parentNode)
-    console.log("option change:", e.target.value)
+    // console.log("option change:", e.target.value)
     setValue(value)
     fetch(`http://localhost:3001/hosts/${id}`, {
       method: 'PATCH',
@@ -45,7 +45,10 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
         area: value
       })
     }).then(res => res.json())
-      .then(updatedHost => updateHost(updatedHost))
+      .then(updatedHost => {
+        updateHost(updatedHost)
+        setSelectedHost(updatedHost)
+      })
     
     // the 'value' attribute is given via Semantic's Dropdown component.
     // Put a debugger or console.log in here and see what the "value" variable is when you pass in different options.
@@ -63,10 +66,13 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
         active: !active
       })
     }).then(res => res.json())
-      .then(updatedHost => updateHost(updatedHost))
+      .then(updatedHost => {
+        updateHost(updatedHost)
+        setSelectedHost(updatedHost)
+      })
   }
 
-  // console.log("Selected host:", selectedHost);
+  console.log("Selected host:", selectedHost);
 
   return (
     <Grid>

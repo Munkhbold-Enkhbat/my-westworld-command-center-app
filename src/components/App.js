@@ -12,10 +12,6 @@ function App() {
 
   let activeHosts = []
   let nonActiveHosts = []
-  // if(isAllActive) {
-  //   hosts.map(host => (host.active = true))
-  // }
-  // isAllActive ? hosts.map(host => (host.active = true) : hosts 
 
   useEffect(() => {
     fetch('http://localhost:3001/areas')
@@ -36,13 +32,11 @@ function App() {
     // console.log("Non-Active hosts:", nonActiveHosts);
 
   function updateHost(updatedHost) {
-    // console.log('updatedHost:', updatedHost)
     const updatedHosts = hosts.map(host => host.id === updatedHost.id ? updatedHost : host)    
     setHosts(updatedHosts)
   }
 
   function handleActivateBtn(e) {
-    console.log("Activate Btn:", e.target.textContent)
     if(e.target.textContent === 'ACTIVATE ALL') {
       const activatedOnes = hosts.map(host => host.active === false ? {...host, active: true} : host)
       console.log('activatedOnes:', activatedOnes);
@@ -53,9 +47,6 @@ function App() {
       setHosts(nonActivedOnes)
     }
   }
-
-  // console.log(hosts);
-
   return (
     <Segment id="app">
       {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
