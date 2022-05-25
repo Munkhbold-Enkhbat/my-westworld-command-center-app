@@ -31,10 +31,10 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
 
   const [value, setValue] = useState(selectedHost.area);
 
-  function handleOptionChange(e, { value }) {
+  function handleOptionChange({ value }) {
     
     // console.log("option change name:", e.target.parentNode)
-    // console.log("option change:", e.target.value)
+    console.log("option change:", value)
     setValue(value)
     fetch(`http://localhost:3001/hosts/${id}`, {
       method: 'PATCH',
@@ -54,9 +54,9 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
     // Put a debugger or console.log in here and see what the "value" variable is when you pass in different options.
     // See the Semantic docs for more info: https://react.semantic-ui.com/modules/dropdown/#usage-controlled
   }
-  
+
   function handleRadioChange(e) {
-    console.log("e.target:", e.target);
+    console.log("e.target:", e.target.textContent);
     fetch(`http://localhost:3001/hosts/${id}`, {
       method: 'PATCH',
       headers: {

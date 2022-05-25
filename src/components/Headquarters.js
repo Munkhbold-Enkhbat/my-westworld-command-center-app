@@ -5,8 +5,13 @@ import "../stylesheets/Headquarters.css";
 import ColdStorage from "./ColdStorage";
 import LogPanel from "./LogPanel";
 
-function Headquarters({ updateHost, handleActivateBtn, nonActiveHosts, setHosts, selectedHost, setSelectedHost, areas }) {
+function Headquarters({ updateHost, handleActivateBtn, nonActiveHosts, hosts, setHosts, areas, selectedHost, setSelectedHost }) {
 
+  const handleSelectHost = (hostObj) => {
+    const foundHost = hosts.map(host => host.id = hostObj.id)
+    setSelectedHost(foundHost)
+  }
+ 
   return (
     <Grid celled="internally">
       <Grid.Column width={8}>
@@ -20,8 +25,9 @@ function Headquarters({ updateHost, handleActivateBtn, nonActiveHosts, setHosts,
       <Grid.Column width={5}>
         <Details 
           selectedHost={selectedHost} 
+          setSelectedHost={setSelectedHost} 
           updateHost={updateHost}
-          setSelectedHost={setSelectedHost}
+          handleSelectHost={handleSelectHost}
           areas={areas}
         />
       </Grid.Column>
