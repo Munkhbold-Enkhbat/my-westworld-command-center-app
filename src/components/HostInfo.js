@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import "../stylesheets/HostInfo.css";
 
-function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
+function HostInfo({ updateHost, selectedHost, setSelectedHost, areas, hosts}) {
 
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
   // This state is just to show how the dropdown component works.
@@ -30,6 +30,8 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
   }))
 
   const [value, setValue] = useState(area);
+  
+  hosts.map(host => host.id === selectedHost.id ? setSelectedHost(host) : host)
 
   function handleOptionChange(e, { value }) {
     

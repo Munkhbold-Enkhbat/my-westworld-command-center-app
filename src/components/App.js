@@ -12,7 +12,7 @@ function App() {
 
   let activeHosts = []
   let nonActiveHosts = []
-
+ 
   useEffect(() => {
     fetch('http://localhost:3001/areas')
       .then(res => res.json())
@@ -29,7 +29,7 @@ function App() {
     nonActiveHosts = [...nonActiveHosts, host])
 
     // console.log("Active hosts:", activeHosts);
-    // console.log("Non-Active hosts:", nonActiveHosts);
+    // console.log("Non-Active hosts:", nonActiveHosts); 
 
   function updateHost(updatedHost) {
     const updatedHosts = hosts.map(host => host.id === updatedHost.id ? updatedHost : host)    
