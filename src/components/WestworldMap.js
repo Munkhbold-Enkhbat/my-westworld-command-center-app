@@ -6,7 +6,6 @@ function WestworldMap({ areas, activeHosts }) {
 
   const renderAreas = () => {
     return areas.map(area => {
-      // console.log(area);
       let areaHosts = activeHosts.filter(host => host.area === area.name)
       return <Area key={area.id} area={area} areaHosts={areaHosts}/>
     })

@@ -31,12 +31,13 @@ function App() {
     // console.log("Active hosts:", activeHosts);
     // console.log("Non-Active hosts:", nonActiveHosts);
 
-  function updateHost(updatedHost) {
-    const updatedHosts = hosts.map(host => host.id === updatedHost.id ? updatedHost : host)    
-    setHosts(updatedHosts)
-  }
+  // function updateHost(updatedHost) {
+  //   const updatedHosts = hosts.map(host => host.id === updatedHost.id ? updatedHost : host)    
+  //   setHosts(updatedHosts)
+  // }
 
   function updateBackEnd(item) {
+    console.log("updateBE:", item);
     // debugger
     fetch(`http://localhost:3001/hosts/${item.id}`, {
       method: 'PATCH',
@@ -55,7 +56,6 @@ function App() {
   // }
 
   function handleActivateBtn(e) {
-    // debugger
     if(e.target.textContent === 'ACTIVATE ALL') {
       const activatedOnes = hosts.map(host => {
         if(host.active === false)  {
@@ -98,7 +98,7 @@ function App() {
       {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
       <WestworldMap areas={areas} activeHosts={activeHosts}/>
       <Headquarters 
-        updateHost={updateHost}
+        // updateHost={updateHost}
         handleActivateBtn={handleActivateBtn}
         nonActiveHosts={nonActiveHosts}
         hosts={hosts}

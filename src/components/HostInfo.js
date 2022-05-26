@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import "../stylesheets/HostInfo.css";
 
-function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
+function HostInfo({ selectedHost, setSelectedHost, areas}) {
 
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
   // This state is just to show how the dropdown component works.
@@ -29,12 +29,12 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
     return {key: area.name, text: areaName, value: area.name}
   }))
 
-  const [value, setValue] = useState(selectedHost.area);
+  const [value, setValue] = useState(area);
 
-  function handleOptionChange({ value }) {
+  function handleOptionChange(e, { value }) {
     
-    // console.log("option change name:", e.target.parentNode)
-    console.log("option change:", value)
+    // console.log("option change name:", e.target)
+    // console.log("option change:", value)
     setValue(value)
     fetch(`http://localhost:3001/hosts/${id}`, {
       method: 'PATCH',
@@ -45,9 +45,8 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
         area: value
       })
     }).then(res => res.json())
-      .then(updatedHost => {
-        updateHost(updatedHost)
-        setSelectedHost(updatedHost)
+      .then(hostData => {
+        setSelectedHost(hostData)
       })
     
     // the 'value' attribute is given via Semantic's Dropdown component.
@@ -67,12 +66,11 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
       })
     }).then(res => res.json())
       .then(updatedHost => {
-        updateHost(updatedHost)
         setSelectedHost(updatedHost)
       })
   }
 
-  // console.log("Selected host:", selectedHost);
+  console.log("Selected host:", selectedHost);
 
   return (
     <Grid>
@@ -105,7 +103,7 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
             Current Area:
             <Dropdown
               onChange={handleOptionChange}
-              value={area}
+              value={value}
               name="area"
               options={options}
               selection

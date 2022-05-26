@@ -5,7 +5,7 @@ import "../stylesheets/Headquarters.css";
 import ColdStorage from "./ColdStorage";
 import LogPanel from "./LogPanel";
 
-function Headquarters({ updateHost, handleActivateBtn, nonActiveHosts, hosts, setHosts, areas, selectedHost, setSelectedHost }) {
+function Headquarters({ handleActivateBtn, nonActiveHosts, hosts, setHosts, areas, selectedHost, setSelectedHost }) {
 
   const handleSelectHost = (hostObj) => {
     const foundHost = hosts.map(host => host.id = hostObj.id)
@@ -26,7 +26,6 @@ function Headquarters({ updateHost, handleActivateBtn, nonActiveHosts, hosts, se
         <Details 
           selectedHost={selectedHost} 
           setSelectedHost={setSelectedHost} 
-          updateHost={updateHost}
           handleSelectHost={handleSelectHost}
           areas={areas}
         />
