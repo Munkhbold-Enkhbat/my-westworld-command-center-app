@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import "../stylesheets/HostInfo.css";
 
-function HostInfo({ selectedHost, setSelectedHost, areas}) {
+function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
 
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
   // This state is just to show how the dropdown component works.
@@ -47,6 +47,7 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
     }).then(res => res.json())
       .then(hostData => {
         setSelectedHost(hostData)
+        updateHost(hostData)
       })
     
     // the 'value' attribute is given via Semantic's Dropdown component.
@@ -54,8 +55,8 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
     // See the Semantic docs for more info: https://react.semantic-ui.com/modules/dropdown/#usage-controlled
   }
 
-  function handleRadioChange(e) {
-    console.log("e.target:", e.target.textContent);
+  function handleRadioChange() {
+    // console.log("e.target:", e.target.textContent);
     fetch(`http://localhost:3001/hosts/${id}`, {
       method: 'PATCH',
       headers: {
@@ -65,8 +66,9 @@ function HostInfo({ selectedHost, setSelectedHost, areas}) {
         active: !active
       })
     }).then(res => res.json())
-      .then(updatedHost => {
-        setSelectedHost(updatedHost)
+      .then(hostData => {
+        setSelectedHost(hostData)
+        updateHost(hostData) 
       })
   }
 
