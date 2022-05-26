@@ -33,7 +33,7 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas}) {
 
   function handleOptionChange(e, { value }) {
     
-    // console.log("option change name:", e.target)
+    console.log("option change name:", e.target)
     // console.log("option change:", value)
     setValue(value)
     fetch(`http://localhost:3001/hosts/${id}`, {

@@ -37,8 +37,7 @@ function App() {
   }
 
   function updateBackEnd(item) {
-    console.log("updateBE:", item);
-    // debugger
+    // console.log("updateBE:", item);
     fetch(`http://localhost:3001/hosts/${item.id}`, {
       method: 'PATCH',
       headers: {
@@ -48,15 +47,16 @@ function App() {
         active: !item.active
       })
     }).then(res => res.json())
-      .then(updatedItem => setSelectedHost(updatedItem))
+      .then(updatedItem => findAndUpdate(updatedItem))
   }
 
-  // const findAndUpdate = (hostObject) => {
-  //   return hosts.map(host => host.id === hostObject.id ? hostObject : host)
-  // }
+  const findAndUpdate = (hostObject) => {
+    return hosts.map(host => host.id === hostObject.id ? hostObject : host)
+  }
 
   function handleActivateBtn(e) {
     if(e.target.textContent === 'ACTIVATE ALL') {
+      // console.log("e.target.textContent:", e.target.textContent);
       const activatedOnes = hosts.map(host => {
         if(host.active === false)  {
           updateBackEnd(host)
