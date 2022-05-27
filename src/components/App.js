@@ -96,7 +96,12 @@ function App() {
   return (
     <Segment id="app">
       {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
-      <WestworldMap areas={areas} activeHosts={activeHosts}/>
+      <WestworldMap 
+        areas={areas} 
+        activeHosts={activeHosts} 
+        setSelectedHost={setSelectedHost} 
+        selectedHost={selectedHost}
+      />
       <Headquarters 
         updateHost={updateHost}
         handleActivateBtn={handleActivateBtn}

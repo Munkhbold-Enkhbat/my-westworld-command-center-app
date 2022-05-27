@@ -13,6 +13,8 @@ import "../stylesheets/HostInfo.css";
 function HostInfo({ updateHost, selectedHost, setSelectedHost, areas, hosts}) {
 
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
+
+  console.log("Selected host area:", area);
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
@@ -30,8 +32,10 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas, hosts}) {
   }))
 
   const [value, setValue] = useState(area);
+
+  console.log("options:", options);
   
-  hosts.map(host => host.id === selectedHost.id ? setSelectedHost(host) : host)
+  hosts.map(host => host.id === selectedHost.id ? setSelectedHost(host) : host)//has some warning issue
 
   function handleOptionChange(e, { value }) {
     
@@ -107,7 +111,7 @@ function HostInfo({ updateHost, selectedHost, setSelectedHost, areas, hosts}) {
             Current Area:
             <Dropdown
               onChange={handleOptionChange}
-              value={value}
+              value={area}
               name="area"
               options={options}
               selection
