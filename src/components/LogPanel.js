@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Segment, Button } from "semantic-ui-react";
 import { Log } from "../services/Log";
 
-function LogPanel({ handleActivateBtn }) {
+function LogPanel({ handleActivateBtn, nonActiveHosts }) {
 
-  const [isAllActive, setIsAllActive] = useState(false)
+  let isThereActiveHost = nonActiveHosts.length === 0 ? true : false
 
   function dummyLogs() {
     // This is just to show you how this should work. But where should the log data actually get stored?
@@ -22,7 +22,7 @@ function LogPanel({ handleActivateBtn }) {
   }
 
   const handleClick = (e) => {
-    setIsAllActive(!isAllActive)
+    isThereActiveHost = !isThereActiveHost
     handleActivateBtn(e)
   }
 
@@ -42,8 +42,8 @@ function LogPanel({ handleActivateBtn }) {
       {/* This isn't always going to be the same color...*/}
       {/* Should the button always read "ACTIVATE ALL"? When should it read "DECOMMISSION ALL"? */}
       <Button fluid 
-              color={isAllActive ? 'green' : 'red'} 
-              content={isAllActive ? 'DECOMMISSION ALL' : 'ACTIVATE ALL'} 
+              color={isThereActiveHost ? 'green' : 'red'} 
+              content={isThereActiveHost ? 'DECOMMISSION ALL' : 'ACTIVATE ALL'} 
               onClick={handleClick}/>
     </Segment>
   );
