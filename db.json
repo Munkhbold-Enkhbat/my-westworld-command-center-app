@@ -7,7 +7,7 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/5/51/Dolores_Abernathy_Vanishing_Point.jpg/revision/latest?cb=20180613181613",
       "gender": "Female",
-      "area": "python_pass",
+      "area": "pariah",
       "authorized": false
     },
     {
@@ -34,7 +34,7 @@
       "id": 4,
       "firstName": "Akecheta",
       "lastName": "Kiksuya",
-      "active": true,
+      "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/8/82/Akecheta_Kiksuya.jpg/revision/latest?cb=20180607183222",
       "gender": "Male",
       "area": "python_pass",
@@ -67,17 +67,17 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/f/f3/Akane.jpg/revision/latest/scale-to-width-down/310?cb=20180520132523",
       "gender": "Female",
-      "area": "under_construction",
+      "area": "high_plains",
       "authorized": false
     },
     {
       "id": 8,
       "firstName": "Lawrence",
       "lastName": "n/a",
-      "active": true,
+      "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/c/cb/Lawrence_Reunion.jpg/revision/latest/scale-to-width-down/310?cb=20180613182747",
       "gender": "Male",
-      "area": "lowlands",
+      "area": "badlands",
       "authorized": false
     },
     {
@@ -87,17 +87,17 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/a/a9/Teddy_Flood_Phase_Space.jpg/revision/latest/scale-to-width-down/310?cb=20180526115338",
       "gender": "Male",
-      "area": "high_plains",
+      "area": "lowlands",
       "authorized": false
     },
     {
       "id": 10,
       "firstName": "Clementine",
       "lastName": "Pennyfeather",
-      "active": true,
+      "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/4/44/Clementine_The_Riddle_of_the_Sphinx.jpg/revision/latest?cb=20180516165617",
       "gender": "Female",
-      "area": "python_pass",
+      "area": "under_construction",
       "authorized": false
     },
     {
@@ -107,7 +107,7 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/7/78/Armistice_Akane_No_Mai.jpg/revision/latest/scale-to-width-down/310?cb=20180517164314",
       "gender": "Female",
-      "area": "lowlands",
+      "area": "pariah",
       "authorized": false
     },
     {
@@ -117,7 +117,7 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/7/78/Hector_Journey_Into_Night.jpg/revision/latest/scale-to-width-down/310?cb=20180613183102",
       "gender": "Male",
-      "area": "lowlands",
+      "area": "pariah",
       "authorized": false
     },
     {
@@ -127,7 +127,7 @@
       "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/3/3b/Major_Craddock_The_Riddle_of_the_Sphinx.jpg/revision/latest?cb=20180511205852",
       "gender": "Male",
-      "area": "lowlands",
+      "area": "under_construction",
       "authorized": false
     },
     {
@@ -144,7 +144,7 @@
       "id": 15,
       "firstName": "Musashi",
       "lastName": "n/a",
-      "active": true,
+      "active": false,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/6/6b/Musashi_Akane_No_Mai.jpg/revision/latest/scale-to-width-down/310?cb=20180520131337",
       "gender": "Male",
       "area": "badlands",

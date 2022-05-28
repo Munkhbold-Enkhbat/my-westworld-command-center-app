@@ -2,7 +2,7 @@ import React from "react";
 import { Segment } from "semantic-ui-react";
 import HostList from "./HostList";
 
-function ColdStorage({ nonActiveHosts, selectedHost, setSelectedHost }) {
+function ColdStorage({ hosts, nonActiveHosts, selectedHost, setSelectedHost }) {
 
 
   return (
@@ -13,6 +13,7 @@ function ColdStorage({ nonActiveHosts, selectedHost, setSelectedHost }) {
       <Segment compact>
         {/* Cold Storage contains hosts....but how? Directly? Or is there something else we could use to contain them... */}
         <HostList 
+          hosts={hosts}
           nonActiveHosts={nonActiveHosts} 
           selectedHost={selectedHost}
           setSelectedHost={setSelectedHost}

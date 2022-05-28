@@ -11,6 +11,7 @@ function Headquarters({ updateHost, handleActivateBtn, nonActiveHosts,  hosts, s
     <Grid celled="internally">
       <Grid.Column width={8}>
         <ColdStorage 
+          hosts={hosts}
           nonActiveHosts={nonActiveHosts}
           setHosts={setHosts} 
           selectedHost={selectedHost}
